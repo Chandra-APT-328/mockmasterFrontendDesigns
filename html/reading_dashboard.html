@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Computer-Based Reading Test</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+    <div class="container mx-auto p-8 bg-white shadow-lg rounded-lg">
+        <!-- Navigation Menu -->
+        <nav class="bg-blue-500 rounded-lg mb-6">
+            <ul class="flex flex-wrap justify-around">
+                <li><a href="#" class="nav-link block py-3 px-6 text-white hover:bg-blue-700 rounded-lg"
+                        data-target="overview">Overview</a></li>
+                <li><a href="#" class="nav-link block py-3 px-6 text-white hover:bg-blue-700 rounded-lg"
+                        data-target="format">Format</a></li>
+                <li><a href="#" class="nav-link block py-3 px-6 text-white hover:bg-blue-700 rounded-lg"
+                        data-target="scoring">Scoring</a></li>
+                <li><a href="#" class="nav-link block py-3 px-6 text-white hover:bg-blue-700 rounded-lg"
+                        data-target="sampleTopics">Sample Topics</a></li>
+                <li><a href="#" class="nav-link block py-3 px-6 text-white hover:bg-blue-700 rounded-lg"
+                        data-target="practiceTests">Practice Tests</a></li>
+            </ul>
+        </nav>
+
+        <!-- Overview Section -->
+        <div id="overview" class="section hidden">
+            <h2 class="text-blue-500 text-3xl mb-4">IELTS Reading: Overview</h2>
+            <p class="mb-4">The IELTS Reading test is designed to evaluate a candidate’s ability to understand spoken
+                English in various real-life contexts. Understanding the format of the test is essential for effective
+                preparation.</p>
+            <table class="table-auto w-full border-collapse">
+                <tr>
+                    <th class="border px-4 py-2 bg-gray-100">Section</th>
+                    <td class="border px-4 py-2">4 sections</td>
+                </tr>
+                <tr>
+                    <th class="border px-4 py-2 bg-gray-100">Duration</th>
+                    <td class="border px-4 py-2">30 minutes</td>
+                </tr>
+                <tr>
+                    <th class="border px-4 py-2 bg-gray-100">Number of Questions</th>
+                    <td class="border px-4 py-2">40</td>
+                </tr>
+                <tr>
+                    <th class="border px-4 py-2 bg-gray-100">Number of Recordings</th>
+                    <td class="border px-4 py-2">4</td>
+                </tr>
+                <tr>
+                    <th class="border px-4 py-2 bg-gray-100">Question Types</th>
+                    <td class="border px-4 py-2">6</td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- Format Section -->
+        <div id="format" class="section hidden">
+            <h2 class="text-blue-500 text-3xl mb-4">IELTS Reading: Format</h2>
+            <h3 class="text-blue-400 text-xl mb-2">Sections</h3>
+            <ul class="list-disc pl-6 mb-4">
+                <li>The Reading section consists of 4 sections, each containing a different audio recording.</li>
+                <li>These sections progressively increase in difficulty.</li>
+            </ul>
+            <h3 class="text-blue-400 text-xl mb-2">Types of Questions</h3>
+            <ul class="list-disc pl-6 mb-4">
+                <li><strong>Multiple Choice:</strong> Choose the correct answer from a list of options.</li>
+                <li><strong>Matching:</strong> Match the information given in the recording with provided options (e.g.,
+                    matching names with descriptions).</li>
+                <li><strong>Gap-fill:</strong> Fill in the blanks with missing words or phrases based on the recording.
+                </li>
+                <li><strong>Form Completion:</strong> Complete forms, tables, or diagrams based on the information
+                    heard.</li>
+                <li><strong>Short Answer Questions:</strong> Answer questions in a few words or a short phrase based on
+                    the recording.</li>
+                <li><strong>Sentence Completion:</strong> Complete sentences based on the information heard.</li>
+            </ul>
+        </div>
+
+        <!-- Scoring Section -->
+        <div id="scoring" class="section hidden">
+            <h2 class="text-blue-500 text-3xl mb-4">IELTS Reading: Scoring System</h2>
+            <p class="mb-4">Understanding how the IELTS Reading test is scored is crucial for candidates aiming to
+                achieve their desired band score.</p>
+            <h3 class="text-blue-400 text-xl mb-2">Overall Band Score</h3>
+            <ul class="list-disc pl-6 mb-4">
+                <li>The IELTS Reading test is scored on a scale of 0 to 9.</li>
+                <li>This overall band score reflects the candidate’s proficiency in understanding spoken English across
+                    the four sections of the Reading test.</li>
+            </ul>
+            <h3 class="text-blue-400 text-xl mb-2">Scoring Criteria and Bands</h3>
+            <ul class="list-disc pl-6 mb-4">
+                <li>The scoring criteria assess a candidate’s ability to:
+                    <ul class="list-disc pl-6 mb-4">
+                        <li>Understand the main ideas and specific details presented in the audio recordings.</li>
+                        <li>Identify the purpose, opinions, and attitudes expressed in the recordings.</li>
+                        <li>Follow the development of ideas and relationships between speakers.</li>
+                    </ul>
+                </li>
+                <li>Each correct answer contributes to the candidate’s overall score.</li>
+                <li>The total score is then converted to a band score based on the IELTS band descriptors.</li>
+                <li>The band descriptors outline the specific skills and abilities expected at each band score level,
+                    ranging from Band 1 (Non-User) to Band 9 (Expert User).</li>
+            </ul>
+            <h3 class="text-xl font-semibold mb-4">Score Conversion Table</h3>
+            <table class="table-auto w-full border-collapse border border-gray-300">
+                <thead>
+                    <tr>
+                        <th class="border border-gray-300 px-4 py-2 bg-gray-100">Raw Score</th>
+                        <th class="border border-gray-300 px-4 py-2 bg-gray-100">Band Score</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">39-40</td>
+                        <td class="border border-gray-300 px-4 py-2">9</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">37-38</td>
+                        <td class="border border-gray-300 px-4 py-2">8.5</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">35-36</td>
+                        <td class="border border-gray-300 px-4 py-2">8</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">32-34</td>
+                        <td class="border border-gray-300 px-4 py-2">7.5</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">30-31</td>
+                        <td class="border border-gray-300 px-4 py-2">7</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">26-29</td>
+                        <td class="border border-gray-300 px-4 py-2">6.5</td>
+                    </tr>
+                    <tr>
+                        <td class="border border-gray-300 px-4 py-2">23-25</td>
+                        <td class="border border-gray-300 px-4 py-2">6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sample Topics Section -->
+<div id="sampleTopics" class="section hidden">
+    <h2 class="text-blue-500 text-3xl mb-4">IELTS Exam Reading: Sample Topics</h2>
+    <p class="mb-4">Here are some sample topics across various categories that might appear in the IELTS Reading test, along with brief descriptions:</p>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Education</h3>
+        <p><strong>Topic:</strong> University Application Process</p>
+        <p class="text-gray-600">This recording discusses the process of applying to universities, including researching programs, completing application forms, and preparing for interviews.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Travel</h3>
+        <p><strong>Topic:</strong> Traveling Abroad</p>
+        <p class="text-gray-600">Listen to a conversation between two travelers discussing their experiences and tips for traveling abroad, covering topics such as booking accommodations, navigating transportation, and exploring local culture.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Health</h3>
+        <p><strong>Topic:</strong> Healthy Lifestyle Choices</p>
+        <p class="text-gray-600">This recording explores the importance of adopting healthy lifestyle habits, including maintaining a balanced diet, engaging in regular exercise, managing stress, and getting enough sleep.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Environment</h3>
+        <p><strong>Topic:</strong> Climate Change Solutions</p>
+        <p class="text-gray-600">Listen to a discussion about various strategies and initiatives aimed at addressing climate change, such as renewable energy, carbon offsetting, and conservation efforts.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Technology</h3>
+        <p><strong>Topic:</strong> Impact of Social Media</p>
+        <p class="text-gray-600">This recording examines the influence of social media on society, discussing topics like digital communication, online privacy, social networking, and its effects on mental health.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Culture</h3>
+        <p><strong>Topic:</strong> Cultural Festivals</p>
+        <p class="text-gray-600">Explore the significance of cultural festivals around the world, including traditions, customs, and celebrations associated with events like Diwali, Chinese New Year, and Carnival.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Work and Employment</h3>
+        <p><strong>Topic:</strong> Job Interview Preparation</p>
+        <p class="text-gray-600">Listen to a conversation between a job seeker and a career advisor discussing effective strategies for preparing for job interviews, including researching companies, practicing common interview questions, and dressing professionally.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Entertainment</h3>
+        <p><strong>Topic:</strong> Film Review</p>
+        <p class="text-gray-600">This recording features a film critic reviewing a recent movie, discussing aspects such as plot, characters, cinematography, and overall impression.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Society</h3>
+        <p><strong>Topic:</strong> Urbanization Trends</p>
+        <p class="text-gray-600">Explore the phenomenon of urbanization and its impact on society, including topics such as population growth, infrastructure development, environmental sustainability, and quality of life in cities.</p>
+    </div>
+
+    <div class="mb-6">
+        <h3 class="text-xl font-semibold text-gray-800 mb-2">Current Affairs</h3>
+        <p><strong>Topic:</strong> Global Health Pandemic</p>
+        <p class="text-gray-600">Listen to a news report on the latest developments in a global health pandemic, including updates on infection rates, vaccination efforts, government responses, and public health guidelines.</p>
+    </div>
+</div>
+
+        <!-- Practice Tests Section -->
+        <div id="practiceTests" class="section hidden">
+            <h2 class="text-blue-500 text-3xl mb-4">Solve FREE IELTS Practice Tests!</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-1</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-2</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-3</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-4</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-5</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-6</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-7</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-8</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-9</a>
+                <a href="reading.html"
+                    class="block w-full text-center py-4 bg-green-500 text-white rounded-lg hover:bg-green-600">IELTS Mock Practice Test-10</a>
+                
+                    <!-- Add more practice tests here -->
+            </div>
+        </div>
+        
+        </div>
+    </div>
+
+    <script src="../javascript/reading_dashboard.js">
+       
+    </script>
+
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selection Modal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" id="languageModal">
+        <div class="bg-white p-6 rounded-lg shadow-lg w-80 animate-fadeIn">
+            <div class="text-center mb-5">
+                <img src="../media/Basic_Ui__28186_29.jpg" alt="User Icon" class="w-12 h-12 mx-auto rounded-full">
+                <h2 class="text-xl font-semibold mt-4">Hi, please confirm your native language</h2>
+            </div>
+            <div class="text-center">
+                <select id="languageSelect" class="w-full p-2 mb-4 border border-gray-300 rounded-md">
+                    <option value="Hindi">Hindi</option>
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="french">French</option>
+                    <option value="arabic">Arabic</option>
+                    <option value="russian">Russian</option>
+                    <option value="portuguese">Portuguese</option>
+                    <option value="japanese">Japanese</option>
+                    <option value="korean">Korean</option>
+                    <option value="gujarati">Gujarati</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Bengali">Bengali</option>
+                </select>
+                <a href="../html/dashboard.html">
+                    <button id="setLanguageBtn" class="w-full p-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition" >Set Native Language</button>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('setLanguageBtn').addEventListener('click', function() {
+            const selectedLanguage = document.getElementById('languageSelect').value;
+            alert('You have selected: ' + selectedLanguage);
+        });
+    </script>
+
+    <style>
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-out;
+        }
+    </style>
+</body>
+</html>

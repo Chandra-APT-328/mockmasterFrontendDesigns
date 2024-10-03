@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Test Preparation Setup</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .selected {
+            background-color: #007bff;
+            color: white;
+            border-color: #007bff;
+        }
+    </style>
+</head>
+<body class="flex justify-center items-center h-screen bg-cover bg-center" style="background-image: url('../media/background_dashboard.png'); backdrop-filter: blur(5px);">
+    <div class="container bg-gray-600 text-center p-8 rounded-lg shadow-lg max-w-md w-11/12">
+        <h1 class="text-2xl mb-5 text-white">IELTS Test Preparation Setup</h1>
+
+        <div class="question mb-8">
+            <p class="text-lg mb-4 text-white">What IELTS test are you preparing for?</p>
+            <div class="options flex justify-between space-x-4">
+                <button class="btn bg-white border border-gray-300 px-6 py-3 rounded-lg shadow hover:bg-gray-200 w-1/2" id="academic">Academic</button>
+                <button class="btn bg-white border border-gray-300 px-6 py-3 rounded-lg shadow hover:bg-gray-200 w-1/2" id="general-training">General Training</button>
+            </div>
+        </div>
+
+        <div class="question mb-8">
+            <p class="text-lg mb-4 text-white">Are you taking a paper test or computer test?</p>
+            <div class="options flex justify-between space-x-4">
+                <button class="btn bg-white border border-gray-300 px-6 py-3 rounded-lg shadow hover:bg-gray-200 w-1/2" id="paper">Paper</button>
+                <button class="btn bg-white border border-gray-300 px-6 py-3 rounded-lg shadow hover:bg-gray-200 w-1/2" id="computer">Computer</button>
+            </div>
+        </div>
+
+        <div>
+            <button class="sign-in-btn bg-pink-600 hover:bg-green-400 text-white text-2xl py-3 px-6 mt-8 rounded-lg shadow-lg" onclick="document.location='languages.html'">Initialize IELTS App</button>
+        </div>
+    </div>
+
+    <script src="../javascript/Exam_selection.js"></script>
+</body>
+</html>

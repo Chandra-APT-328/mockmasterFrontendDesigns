@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Writing Task</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <div class="max-w-4xl mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+        <header class="flex justify-between items-center pb-4 border-b-2 border-gray-200">
+            <h1 class="text-2xl font-bold">IELTS Writing Task</h1>
+            <div class="text-lg text-gray-500" id="timer">Time: 00:00</div>
+        </header>
+
+        <!-- Instructions Page -->
+        <div id="instructionsPage" class="task-page mt-8">
+            <section class="text-center">
+                <h2 class="text-xl font-semibold text-blue-600">IELTS Writing Instructions</h2>
+                <p class="mt-4 text-gray-600">Read the following instructions carefully before starting the test.</p>
+                <ul class="list-disc list-inside text-left mt-6 max-w-lg mx-auto text-gray-700">
+                    <li>You have 1 hour to complete both tasks.</li>
+                    <li>Task 1: Describe the main features of the chart and make comparisons.</li>
+                    <li>Task 2: Discuss both views on a topic and provide your opinion.</li>
+                </ul>
+                <button id="startTestButton" class="mt-6 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Start Test</button>
+            </section>
+        </div>
+
+        <!-- Task 1 Page -->
+        <div id="task1Page" class="task-page mt-8 hidden">
+            <section class="flex space-x-4">
+                <!-- Left Column: Task 1 Question -->
+                <div class="w-1/2">
+                    <h2 class="text-xl font-semibold">Task 1 Question</h2>
+                    <p class="text-gray-600 mt-2">Describe the main features of the following chart and make comparisons where relevant.</p>
+                </div>
+                <!-- Right Column: Task 1 Answer -->
+                <div class="w-1/2">
+                    <textarea id="task1" class="w-full h-64 p-4 border border-gray-300 rounded-md" placeholder="Write your Task 1 here..."></textarea>
+                </div>
+            </section>
+            <button id="nextTaskButton" class="mt-6 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700">Next Task</button>
+        </div>
+
+        <!-- Task 2 Page -->
+        <div id="task2Page" class="task-page mt-8 hidden">
+            <section class="flex space-x-4">
+                <!-- Left Column: Task 2 Question -->
+                <div class="w-1/2">
+                    <h2 class="text-xl font-semibold">Task 2 Question</h2>
+                    <p class="text-gray-600 mt-2">Some people think that environmental problems should be solved on a global scale, while others believe they should be dealt with locally. Discuss both views and give your opinion.</p>
+                </div>
+                <!-- Right Column: Task 2 Answer -->
+                <div class="w-1/2">
+                    <textarea id="task2" class="w-full h-64 p-4 border border-gray-300 rounded-md" placeholder="Write your Task 2 here..."></textarea>
+                </div>
+            </section>
+            <button id="submitTaskButton" class="mt-6 px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700">Submit</button>
+        </div>
+
+        <!-- Submission Confirmation Page -->
+        <div id="submissionPage" class="task-page mt-8 hidden">
+            <section class="text-center">
+                <h2 class="text-xl font-semibold text-green-600">Task Submitted</h2>
+                <p class="mt-4 text-gray-600">Your answers have been submitted successfully. Thank you!</p>
+            </section>
+        </div>
+
+        <footer class="pt-6 border-t-2 border-gray-200 mt-8 text-center">
+            <span class="text-gray-500" id="saveStatus">Auto-save enabled</span>
+        </footer>
+    </div>
+
+    <script src="../javascript/writing.js">
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Recording</title>
+  <script defer src="../javascript/speaking.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex justify-center items-center h-screen">
+
+  <div class="w-full max-w-lg p-6 bg-white shadow-lg rounded-lg text-center">
+    <h1 class="text-2xl font-bold mb-4">Interview Recording</h1>
+    
+    <video id="promptVideo" class="mx-auto mb-4" autoplay muted>
+      <source src="../media/random3.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <p id="statusText" class="text-lg text-blue-500 font-medium mb-4">Please watch the video.</p>
+
+    <button id="submitBtn" class="bg-blue-500 text-white py-2 px-4 rounded-md mt-4 hidden">
+      Submit Recording
+    </button>
+  </div>
+
+</body>
+</html>

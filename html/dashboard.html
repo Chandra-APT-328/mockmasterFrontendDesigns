@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>One Australia - Users Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    /* Custom Styles */
+    .sidebar {
+            background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+        }
+
+        .sidebar-logo {
+            background: linear-gradient(135deg, #1d4ed8, #3b82f6);
+        }
+
+        .sidebar-nav a {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .sidebar-nav a:hover {
+            background-color: #e5e7eb;
+            color: #1d4ed8;
+        }
+
+        .sidebar-nav .active {
+            background-color: #1d4ed8;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50 text-gray-900 h-screen">
+
+  <!-- Toggle Button for Mobile View -->
+<button id="toggleButton" class="fixed top-4 left-4 z-50 md:hidden bg-gradient-to-r from-blue-500 to-indigo-600 text-white p-3 rounded-full shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105">
+    <!-- Hamburger Icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+    </svg>
+  </button>
+  
+
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 h-full">
+
+    <!-- Sidebar -->
+    <aside id="sidebar"
+        class="col-span-3 sidebar p-6 flex flex-col h-full transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out md:col-span-3 z-40 fixed md:relative md:inset-0 w-64 md:w-auto">
+        <!-- Logo -->
+        <figure class="flex items-center space-x-4 mb-6">
+            <div class="w-16 h-16 rounded-full overflow-hidden sidebar-logo flex items-center justify-center">
+                <img src="../media/logo.png" alt="One Australia" class="w-full h-full object-cover">
+            </div>
+            <figcaption class="text-lg font-bold text-blue-300">One Australia</figcaption>
+        </figure>
+
+        <!-- Navigation -->
+        <nav class="flex-1">
+            <h3 class="text-sm uppercase text-blue-600 font-semibold mb-4">Discover</h3>
+            <ul class="space-y-4 sidebar-nav">
+                <li>
+                    <a href="dashboard.html"
+                        class="flex items-center space-x-3 p-2 rounded-lg text-gray-600 hover:text-blue-500">
+                        <img src="../media/history.jpg" class="w-6 h-6">
+                        <span>IELTS TUTOR</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg text-gray-600 hover:text-blue-500">
+                        <img src="../media/meetings-webinars.jpg" class="w-6 h-6">
+                        <span>IELTS TEST</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="testing.html"
+                        class="flex items-center space-x-3 p-2 rounded-lg text-gray-600 hover:text-blue-500">
+                        <img src="../media/note_taking.jpg" class="w-6 h-6">
+                        <span>IELTS PRACTICE</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" class="flex items-center space-x-3 p-2 rounded-lg text-gray-600 hover:text-blue-500">
+                        <img src="../media/icon_reading.png" class="w-6 h-6">
+                        <span>IELTS LESSONS</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="vocabulary.html"
+                        class="flex items-center space-x-3 p-2 rounded-lg text-gray-600 hover:text-blue-500">
+                        <img src="../media/icon_text_size.png" class="w-6 h-6">
+                        <span>IELTS VOCABULARY</span>
+                    </a>
+                </li>
+            </ul>
+
+        <!-- Tools Section -->
+        <h3 class="text-sm uppercase text-blue-600 font-semibold my-6">Tools</h3>
+        <ul class="space-y-4 sidebar-nav">
+          <li>
+            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg text-gray-600 hover:text-blue-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+                <path
+                  d="M10 18a7.952 7.952 0 0 0 4.897-1.688l4.396 4.396 1.414-1.414-4.396-4.396A7.952 7.952 0 0 0 18 10c0-4.411-3.589-8-8-8s-8 3.589-8 8 3.589 8 8 8zm0-14c3.309 0 6 2.691 6 6s-2.691 6-6 6-6-2.691-6-6 2.691-6 6-6z" />
+              </svg>
+              <span>Search</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="flex items-center space-x-3 p-2 rounded-lg text-gray-600 hover:text-blue-500">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 24 24">
+                <path d="M13 7L11 7 11 11 7 11 7 13 11 13 11 17 13 17 13 13 17 13 17 11 13 11z" />
+                <path
+                  d="M12,2C6.486,2,2,6.486,2,12s4.486,10,10,10c5.514,0,10-4.486,10-10S17.514,2,12,2z M12,20c-4.411,0-8-3.589-8-8 s3.589-8,8-8s8,3.589,8,8S16.411,20,12,20z" />
+              </svg>
+              <span>Create Portfolio</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="col-span-9 bg-gray-50 p-6 overflow-auto">
+
+        <!-- Top Right Navbar -->
+        <div class="flex flex-col md:flex-row justify-end items-center md:space-x-6 mb-6 space-y-4 md:space-y-0">
+      
+          <!-- Search Bar -->
+          <div class="relative w-full md:w-auto">
+            <input type="text" placeholder="Search..."
+              class="p-2 border border-gray-300 rounded-lg w-full md:w-64 focus:outline-none focus:ring-2 focus:ring-blue-500">
+            <span class="absolute right-2 top-2">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-gray-500" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 11a4 4 0 100-8 4 4 0 000 8zm0 0v12m8-12a4 4 0 100-8 4 4 0 000 8z" />
+              </svg>
+            </span>
+          </div>
+      
+          <!-- Notification Icon -->
+          <button class="relative">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path
+                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118.5 15H18c-1.657 0-3-1.343-3-3V8.414a3 3 0 00-.879-2.121L12 2.707a2 2 0 00-2.828 0L7.88 3.707A3 3 0 007 5.828V12c0 1.657-1.343 3-3 3H3.5a2.03 2.03 0 01-1.095.405L1 17h5m5 0h4m0 0h5m0 0v4m0 0H6v-4" />
+            </svg>
+            <!-- Notification Badge -->
+            <span class="absolute top-0 right-0 w-2 h-2 bg-red-600 rounded-full"></span>
+          </button>
+      
+          <!-- Logout Button -->
+          <a href="logout.html" class="flex items-center space-x-2 text-gray-600 hover:text-blue-600">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"
+              stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6-6v12M4 12h10" />
+            </svg>
+            <span>Logout</span>
+          </a>
+        </div>
+
+      <!-- Header -->
+      <header class="flex items-center justify-between mb-6">
+        <div>
+          <h1 class="text-2xl font-bold">IELTS Tutor Dashboard</h1>
+        </div>
+        <div>
+          <!-- Add additional button options if necessary -->
+        </div>
+      </header>
+
+      <!-- Main Dashboard Content -->
+      <section class="grid grid-cols-1 gap-6">
+        <!-- Info Boxes -->
+        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
+          <!-- Reading Box -->
+          <div
+            class="bg-gradient-to-r from-blue-100 to-blue-300 shadow-lg p-4 rounded-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+            <div class="w-12 h-12 bg-blue-200 rounded-full flex items-center justify-center">
+              <img src="../media/icon_reading.png" class="w-8 h-8 object-cover">
+            </div>
+            <div>
+              <span class="block text-2xl font-semibold text-gray-800">7.5</span>
+              <span class="text-gray-600">Reading</span>
+            </div>
+          </div>
+
+          <!-- Writing Box -->
+          <div
+            class="bg-gradient-to-r from-green-100 to-green-300 shadow-lg p-4 rounded-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+            <div class="w-12 h-12 bg-green-200 rounded-full flex items-center justify-center">
+              <img src="../media/icon_writing.png" class="w-8 h-8 object-cover">
+            </div>
+            <div>
+              <span class="block text-2xl font-semibold text-gray-800">8.0</span>
+              <span class="text-gray-600">Writing</span>
+            </div>
+          </div>
+
+          <!-- Listening Box -->
+          <div
+            class="bg-gradient-to-r from-yellow-100 to-yellow-300 shadow-lg p-4 rounded-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+            <div class="w-12 h-12 bg-yellow-200 rounded-full flex items-center justify-center">
+              <img src="../media/icon_listen.png" class="w-8 h-8 object-cover">
+            </div>
+            <div>
+              <span class="block text-2xl font-semibold text-gray-800">8.0</span>
+              <span class="text-gray-600">Listening</span>
+            </div>
+          </div>
+
+          <!-- Speaking Box -->
+          <div
+            class="bg-gradient-to-r from-red-100 to-red-300 shadow-lg p-4 rounded-lg flex items-center space-x-4 transition-transform transform hover:scale-105">
+            <div class="w-12 h-12 bg-red-200 rounded-full flex items-center justify-center">
+              <img src="../media/icon_speaking.png" class="w-8 h-8 object-cover">
+            </div>
+            <div>
+              <span class="block text-2xl font-semibold text-gray-800">7.0</span>
+              <span class="text-gray-600">Speaking</span>
+            </div>
+          </div>
+        </section>
+<!-- Calendar Container -->
+<div id="calendar-container" class="calendar-wrapper p-6 bg-white shadow-lg rounded-lg border border-gray-200">
+    <div class="calendar-header flex items-center justify-between mb-6">
+      <button id="prev-year"
+        class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-2 rounded-lg shadow-lg hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
+        &lt;
+      </button>
+      <span id="current-year" class="text-2xl font-semibold text-gray-800"></span>
+      <button id="next-year"
+        class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-3 py-2 rounded-lg shadow-lg hover:bg-gradient-to-r hover:from-blue-600 hover:to-blue-700 transition duration-300 ease-in-out transform hover:scale-105">
+        &gt;
+      </button>
+    </div>
+  
+    <!-- Months Grid -->
+    <div class="calendar-months grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
+      <!-- Month Boxes -->
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="0">January</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="1">February</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="2">March</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="3">April</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="4">May</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="5">June</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="6">July</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="7">August</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="8">September</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="9">October</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="10">November</div>
+      <div class="month cursor-pointer p-2 text-center rounded-lg bg-gray-100 hover:bg-gray-200 transition duration-200"
+        data-month="11">December</div>
+    </div>
+  
+    <!-- Calendar Grid for Dates -->
+    <div id="calendar-grid" class="calendar-grid grid grid-cols-7 gap-2"></div>
+  </div>
+  
+  <!-- Confirmation Section -->
+  <div id="confirmation-container"
+    class="confirmation-container p-6 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg shadow-lg mt-6"
+    style="display: none;">
+    <h2 class="text-2xl font-bold mb-4">Your date is booked!</h2>
+    <p id="selected-date" class="text-lg mb-4"></p>
+    <button id="update-date"
+      class="bg-white text-blue-600 px-4 py-2 rounded-lg shadow-md hover:bg-gray-100 transition duration-300 ease-in-out transform hover:scale-105">
+      Update Date
+    </button>
+  </div>
+  
+        <!-- Desire Score -->
+        <div class="max-w-4xl mx-auto my-12 p-6 bg-white rounded-lg shadow-lg">
+          <h2 class="text-3xl font-bold text-blue-700 mb-8 text-center">Targeted Score</h2>
+
+          <!-- Score Form -->
+          <form id="score-form" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 border border-gray-300 rounded-lg bg-gray-50 shadow-sm">
+              <label for="listening-score" class="block text-lg font-semibold text-gray-700 mb-2">Listening:</label>
+              <input type="number" id="listening-score"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="p-6 border border-gray-300 rounded-lg bg-gray-50 shadow-sm">
+              <label for="reading-score" class="block text-lg font-semibold text-gray-700 mb-2">Reading:</label>
+              <input type="number" id="reading-score"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="p-6 border border-gray-300 rounded-lg bg-gray-50 shadow-sm">
+              <label for="speaking-score" class="block text-lg font-semibold text-gray-700 mb-2">Speaking:</label>
+              <input type="number" id="speaking-score"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="p-6 border border-gray-300 rounded-lg bg-gray-50 shadow-sm">
+              <label for="writing-score" class="block text-lg font-semibold text-gray-700 mb-2">Writing:</label>
+              <input type="number" id="writing-score"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="p-6 border border-gray-300 rounded-lg bg-gray-50 shadow-sm">
+              <label for="overall-score" class="block text-lg font-semibold text-gray-700 mb-2">Overall:</label>
+              <input type="number" id="overall-score"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit"
+              class="col-span-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md">
+              Submit Scores
+            </button>
+          </form>
+
+          <!-- Confirmation Message -->
+          <div id="confirmation-message" class="mt-6 p-4 bg-blue-100 text-blue-700 rounded-lg hidden">
+            <p>Scores submitted successfully!</p>
+          </div>
+
+          <!-- Edit Scores Button -->
+          <button id="edit-scores"
+            class="mt-4 px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-md hidden">
+            Edit Scores
+          </button>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="../javascript/dashboard.js">
+  
+</script>
+</body>
+
+</html>

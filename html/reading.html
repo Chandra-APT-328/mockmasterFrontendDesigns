@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Reading Module</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Custom Scrollbar Styles */
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 12px; /* Adjust width as needed */
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background-color: #f1f1f1;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body class="flex flex-col h-screen bg-gray-100">
+    <header class="bg-blue-600 text-white p-4 flex justify-between items-center shadow-md">
+        <h1 class="text-xl font-bold">IELTS Reading Module</h1>
+        <div class="flex items-center space-x-4">
+            <span id="part-indicator" class="text-lg font-semibold">Part 1</span>
+            <span id="timer" class="text-lg font-semibold">60:00</span>
+        </div>
+    </header>
+    <main class="flex flex-1 overflow-hidden">
+        <div id="passage-container" class="flex-1 p-5 border-r-2 border-gray-300 bg-white custom-scrollbar overflow-y-auto">
+            <h2 class="text-xl font-bold mb-4">Reading Passage</h2>
+            <div id="passage-content" class="mb-4"></div>
+            <img id="passage-image" class="max-w-full h-auto mt-2 rounded-lg shadow-md" alt="Reading Passage Image">
+        </div>
+        <div id="question-container" class="flex-1 p-5 bg-white custom-scrollbar overflow-y-auto relative">
+            <h2 class="text-xl font-bold mb-4">Questions</h2>
+            <div id="questions">
+                <div id="part1" class="part absolute inset-0 overflow-y-auto p-5 bg-white shadow-md"></div>
+                <div id="part2" class="part absolute inset-0 overflow-y-auto p-5 bg-white shadow-md"></div>
+                <div id="part3" class="part absolute inset-0 overflow-y-auto p-5 bg-white shadow-md"></div>
+            </div>
+        </div>
+    </main>
+    <footer class="bg-gray-200 p-4 text-center">
+        <button id="prev-btn" class="nav-btn bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-md" disabled>Previous</button>
+        <button id="next-btn" class="nav-btn bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-md">Next</button>
+        <button id="submit-btn" class="bg-green-500 hover:bg-green-700 text-white py-2 px-4 rounded-md" style="display: none;">Submit</button>
+    </footer>
+    <div id="notepad" class="fixed bottom-4 right-4 bg-white shadow-lg p-4 rounded-lg w-80">
+        <h3 class="text-lg font-bold mb-2">Notepad</h3>
+        <textarea placeholder="Take notes..." class="w-full h-36 p-2 border border-gray-300 rounded-md"></textarea>
+    </div>
+    <script src="../javascript/reading.js">
+        
+    </script>
+</body>
+</html>

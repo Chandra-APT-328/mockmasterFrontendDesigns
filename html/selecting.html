@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Exercise</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-cover bg-center min-h-screen p-6 text-center" style="background-image: url('../media/mesh-1430108_1280.png');">
+    <div class="max-w-4xl mx-auto p-8 bg-white rounded-lg shadow-lg">
+        <p class="text-purple-700 text-2xl font-bold mb-6">Instructions: Select an image that best describes the vocabulary you just heard.</p>
+        
+        <!-- Audio Control -->
+        <div class="mb-6">
+            <button id="play-sound" onclick="playSound()" class="focus:outline-none">
+                <img src="../media/loudspeaker.png" alt="Play Sound" class="w-12 h-12">
+            </button>
+        </div>
+
+        <hr class="mb-6">
+
+        <!-- Image Grid -->
+        <div id="image-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Images will be dynamically inserted here -->
+        </div>
+
+        <!-- Result Message -->
+        <div id="result-message" class="mt-6 text-lg font-bold"></div>
+    </div>
+
+    <script src="../javascript/selecting.js"></script>
+</body>
+</html>

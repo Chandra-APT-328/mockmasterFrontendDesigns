@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Glossary</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Optional: Custom Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    // You can extend Tailwind's default configuration here
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-pink-100 text-gray-800 font-sans min-h-screen flex items-center justify-center">
+    <div class="container mx-auto p-6">
+        <h1 class="text-3xl text-center font-bold text-blue-900 mb-6">Vocabulary Glossary</h1>
+        
+        <div class="flex flex-col md:flex-row justify-center gap-4 mb-6">
+            <input type="text" id="searchBar" class="w-full md:w-72 p-2 border border-gray-300 rounded-md" placeholder="Search words...">
+            <select id="filter" class="w-full md:w-36 p-2 border border-gray-300 rounded-md">
+                <option value="">All</option>
+                <option value="A">A</option>
+                <option value="B">B</option>
+                <option value="C">C</option>
+                <option value="D">D</option>
+                <option value="E">E</option>
+                <option value="F">F</option>
+                <option value="G">G</option>
+                <option value="H">H</option>
+                <option value="I">I</option>
+                <option value="J">J</option>
+                <option value="K">K</option>
+                <option value="L">L</option>
+                <option value="M">M</option>
+                <option value="N">N</option>
+                <option value="O">O</option>
+                <option value="P">P</option>
+                <option value="Q">Q</option>
+                <option value="R">R</option>
+                <option value="S">S</option>
+                <option value="T">T</option>
+                <option value="U">U</option>
+                <option value="V">V</option>
+                <option value="W">W</option>
+                <option value="X">X</option>
+                <option value="Y">Y</option>
+                <option value="Z">Z</option>
+            </select>
+        </div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" id="wordList">
+            <!-- Words will be dynamically inserted here -->
+        </div>
+
+        <!-- Popup and Overlay -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 hidden" id="overlay"></div>
+        <div class="fixed inset-0 flex items-center justify-center hidden" id="popupContainer">
+            <div class="bg-white p-6 rounded-lg shadow-lg w-11/12 max-w-md relative">
+                <h2 class="text-2xl font-bold mb-4" id="popupWord"></h2>
+                <p class="text-lg mb-4" id="popupMeaning"></p>
+                <div class="flex justify-center gap-4">
+                    <button id="pronounceButton" class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700">🔊 Pronounce</button>
+                    <button class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700" id="popupClose">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTop" class="fixed bottom-8 right-8 bg-blue-600 text-white p-4 rounded-full shadow-lg hover:bg-blue-700 hidden" title="Go to top">⬆️</button>
+    </div>
+
+    <script src="../javascript/vocab.js">
+        
+    </script>
+</body>
+</html>

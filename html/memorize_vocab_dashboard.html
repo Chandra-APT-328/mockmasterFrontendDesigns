@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Vocabulary Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex justify-center items-center h-screen bg-gradient-to-br from-blue-300 to-gray-100 font-roboto m-0">
+
+<div class="flex flex-col items-center w-11/12 max-w-4xl gap-5">
+    <div class="box w-full max-w-xs p-5 text-center bg-white rounded-lg shadow-lg transform transition-transform duration-300 cursor-pointer relative overflow-hidden hover:-translate-y-2 hover:bg-blue-500 hover:text-white hover:shadow-2xl"
+         onclick="location.href='memorize_vocab.html'">
+        <img src="deck1-icon.png" alt="Deck 1 Icon" class="w-12 h-12 mb-4">
+        <h2 class="m-0 text-xl z-10">Deck 1</h2>
+        <p id="deck1-count" class="mt-2 text-lg z-10"></p>
+    </div>
+    <div class="box w-full max-w-xs p-5 text-center bg-white rounded-lg shadow-lg transform transition-transform duration-300 cursor-pointer relative overflow-hidden hover:-translate-y-2 hover:bg-blue-500 hover:text-white hover:shadow-2xl"
+         onclick="location.href='memorize_vocab.html'">
+        <img src="deck2-icon.png" alt="Deck 2 Icon" class="w-12 h-12 mb-4">
+        <h2 class="m-0 text-xl z-10">Deck 2</h2>
+        <p id="deck2-count" class="mt-2 text-lg z-10"></p>
+    </div>
+    <div class="box w-full max-w-xs p-5 text-center bg-white rounded-lg shadow-lg transform transition-transform duration-300 cursor-pointer relative overflow-hidden hover:-translate-y-2 hover:bg-blue-500 hover:text-white hover:shadow-2xl"
+         onclick="location.href='memorize_vocab.html'">
+        <img src="deck3-icon.png" alt="Deck 3 Icon" class="w-12 h-12 mb-4">
+        <h2 class="m-0 text-xl z-10">Deck 3</h2>
+        <p id="deck3-count" class="mt-2 text-lg z-10"></p>
+    </div>
+</div>
+<script src="../javascript/memorize_vocab_dashbord.js">
+    // Your JavaScript code for handling interactions will go here
+
+</script>
+</body>
+</html>

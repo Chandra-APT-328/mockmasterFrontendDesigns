@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Flashcards</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.3/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .card {
+            perspective: 1000px;
+            cursor: pointer;
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+        }
+
+        .card.flipped .card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+            border-radius: 0.5rem;
+        }
+
+        .card-front {
+            background-color: #ffffff;
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+
+        .card-back {
+            background-color: #3B82F6; /* Tailwind's blue-500 */
+            color: #ffffff;
+            transform: rotateY(180deg);
+        }
+
+        #messageBox {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            border-radius: 8px;
+            color: #ffffff;
+            background-color: #000000;
+            z-index: 1000;
+            /* Ensures the message is on top */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800 text-center p-5">
+
+    <!-- Header Section -->
+    <header class="bg-blue-500 text-white py-6 shadow-lg">
+        <h1 class="text-4xl font-bold mb-6">Vocabulary Memorization</h1>
+        <nav>
+            <ul class="flex justify-center space-x-4">
+                <li>
+                    <button 
+                        class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 shadow-md" 
+                        onclick="showLevel('easy')">
+                        Easy
+                    </button>
+                </li>
+                <li>
+                    <button 
+                        class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 shadow-md" 
+                        onclick="showLevel('medium')">
+                        Medium
+                    </button>
+                </li>
+                <li>
+                    <button 
+                        class="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-4 rounded-full transition-all duration-300 shadow-md" 
+                        onclick="showLevel('hard')">
+                        Hard
+                    </button>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Flashcard Section -->
+    <section id="flashcards" class="mt-10">
+        <div class="card w-80 h-96 mx-auto" onclick="flipCard(event)">
+            <div class="card-inner">
+                <!-- Front of the card -->
+                <div class="card-front bg-white p-6 rounded-lg shadow-md">
+                    <div class="w-full">
+                        <p id="word" class="text-2xl font-semibold mb-4">Word <span class="icon">🌟</span></p>
+                        <button id="pronounce-btn" 
+                                class="bg-red-400 hover:bg-red-500 text-white text-lg py-2 px-6 rounded-full transition-all duration-300"
+                                onclick="playPronunciation(event)">
+                            🔊 Pronounce
+                        </button>
+                        <button id="flip-card-btn" 
+                                class="bg-blue-500 hover:bg-blue-600 text-white text-lg py-2 px-6 rounded-full mt-4 transition-all duration-300"
+                                aria-label="Flip the card"
+                                onclick="flipCard(event)">
+                            Flip Me
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Back of the card -->
+                <div class="card-back bg-blue-500 text-white p-6 rounded-lg shadow-md">
+                    <div class="w-full">
+                        <p id="definition" class="text-lg mb-2">Definition</p>
+                        <p class="mb-2"><strong>Example:</strong> <span id="example">Example sentence goes here. 💬</span></p>
+                        <p class="mb-2"><strong>Advantages:</strong> <span id="advantages">Advantages of the word 👍</span></p>
+                        <p class="mb-2"><strong>Disadvantages:</strong> <span id="disadvantages">Disadvantages of the word 👎</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Buttons -->
+        <div class="mt-8">
+            <button id="knewWord" 
+                    class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-md mr-4 "
+                    onclick="handleFeedback(true)">
+                I Knew This Word
+            </button>
+            <button id="didntKnowWord" 
+                    class="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-6 rounded-full transition-all duration-300 shadow-md"
+                    onclick="handleFeedback(false)">
+                I Didn't Know This Word
+            </button>
+        </div>
+
+        <!-- Next Word Button -->
+        <button id="nextWord" 
+                class="mt-10 bg-blue-500 hover:bg-blue-600 text-white py-2 px-8 rounded-full transition-all duration-300"
+                onclick="nextWord()" 
+                aria-label="Next Vocabulary Word">
+            Next Word
+        </button>
+    </section>
+
+    <!-- Popup Message -->
+    <div id="messageBox">
+        <p></p>
+    </div>
+
+    <!-- Page Up and Page Down Buttons -->
+    <div class="fixed bottom-10 right-5 flex flex-col space-y-4">
+        <button id="pageUp" 
+                class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition-all duration-300" 
+                onclick="pageUp()" 
+                aria-label="Scroll Page Up">
+            ⬆️
+        </button>
+        <button id="pageDown" 
+                class="bg-blue-500 hover:bg-blue-600 text-white p-3 rounded-full shadow-lg transition-all duration-300" 
+                onclick="pageDown()" 
+                aria-label="Scroll Page Down">
+            ⬇️
+        </button>
+    </div>
+
+    <!-- eBooks Section -->
+    <section id="ebooks" class="mt-16">
+        <h2 class="text-4xl font-bold text-blue-600 mb-8">Explore Our eBooks</h2>
+        <ul class="flex flex-wrap justify-center gap-8">
+            <!-- eBook Item -->
+            <li class="bg-white shadow-lg hover:shadow-xl transition-all duration-300 p-6 rounded-lg w-60 text-center transform hover:-translate-y-2">
+                <i class="fas fa-book text-blue-500 text-5xl"></i>
+                <a href="#" class="block mt-4 text-xl font-semibold text-gray-700 hover:text-blue-600">Beginner's Guide</a>
+            </li>
+            <!-- eBook Item -->
+            <li class="bg-white shadow-lg hover:shadow-xl transition-all duration-300 p-6 rounded-lg w-60 text-center transform hover:-translate-y-2">
+                <i class="fas fa-book-reader text-green-500 text-5xl"></i>
+                <a href="#" class="block mt-4 text-xl font-semibold text-gray-700 hover:text-green-600">Intermediate Mastery</a>
+            </li>
+            <!-- eBook Item -->
+            <li class="bg-white shadow-lg hover:shadow-xl transition-all duration-300 p-6 rounded-lg w-60 text-center transform hover:-translate-y-2">
+                <i class="fas fa-laptop-code text-red-500 text-5xl"></i>
+                <a href="#" class="block mt-4 text-xl font-semibold text-gray-700 hover:text-red-600">Advanced Techniques</a>
+            </li>
+            <!-- eBook Item -->
+            <li class="bg-white shadow-lg hover:shadow-xl transition-all duration-300 p-6 rounded-lg w-60 text-center transform hover:-translate-y-2">
+                <i class="fas fa-graduation-cap text-purple-500 text-5xl"></i>
+                <a href="#" class="block mt-4 text-xl font-semibold text-gray-700 hover:text-purple-600">Expert's Path</a>
+            </li>
+        </ul>
+    </section>
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <script src="../javascript/memorize_vocab.js">
+        // Your JavaScript code for handling interactions will go here
+    
+    </script>
+</body>
+</html>

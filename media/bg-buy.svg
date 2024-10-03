@@ -1,0 +1,21 @@
+<svg width="491" height="300" viewBox="0 0 491 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="491" height="300" rx="4" fill="#C86478"/>
+<mask id="mask0_925_9117" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="491" height="300">
+<rect width="491" height="300" rx="4" fill="white"/>
+</mask>
+<g mask="url(#mask0_925_9117)">
+<circle cx="314" cy="267" r="42" fill="#DDA2AE"/>
+<circle cx="218" cy="28" r="42" fill="#DDA2AE"/>
+<circle cx="417.5" cy="-39.5" r="57.5" fill="#DDA2AE"/>
+<circle cx="137.5" cy="294.5" r="57.5" fill="#D28393"/>
+<circle cx="-45.5" cy="146.5" r="57.5" fill="#D28393"/>
+<circle cx="371.5" cy="-14.5" r="57.5" fill="#D28393"/>
+<circle cx="272" cy="254" r="29" fill="#954B5A"/>
+<circle cx="-9.5" cy="294.5" r="57.5" fill="#954B5A"/>
+<circle cx="490.5" cy="282.5" r="57.5" fill="#954B5A"/>
+<circle cx="156" cy="41" r="62" fill="#954B5A"/>
+<circle cx="464" cy="147" r="62" fill="#954B5A"/>
+<circle cx="19" cy="70" r="29" fill="#DDA2AE"/>
+<circle cx="484" cy="98" r="29" fill="#D28393"/>
+</g>
+</svg>

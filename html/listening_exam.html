@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IELTS Listening Test</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body class="font-sans bg-gray-100 text-gray-800 p-5">
+    <div class="container mx-auto bg-white p-8 rounded-lg shadow-lg max-w-4xl" id="exam-container">
+        <header class="flex justify-between items-center mb-8 pb-4 border-b border-gray-300">
+            <div class="text-2xl text-blue-600 font-bold">Time remaining: <span id="time">30:00</span></div>
+            <div class="space-x-3">
+                <button id="notepad-btn" onclick="toggleNotepad()"
+                    class="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Toggle
+                    Notepad</button>
+              <!-- Review Answers Button -->
+<!-- <button id="review-answers-btn" onclick="toggleReview()"
+class="bg-gray-600 text-white px-4 py-2 rounded-md hover:bg-gray-700 transition">Review Answers</button> -->
+
+<!-- Review Sheet Modal -->
+<!-- <div id="review-sheet-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+<div class="bg-white p-6 rounded-lg shadow-lg w-3/4 max-w-3xl relative">
+    <span class="absolute top-2 right-2 text-gray-500 cursor-pointer text-xl" onclick="closeReviewSheet()">&times;</span>
+    <h2 class="text-2xl font-semibold mb-4">Review Answers</h2>
+    <table class="w-full border-collapse">
+        <thead>
+            <tr>
+                <th class="border-b-2 px-4 py-2">Question</th>
+                <th class="border-b-2 px-4 py-2">Your Answer</th>
+            </tr>
+        </thead>
+        <tbody id="review-list-body"> -->
+            <!-- Dynamic content will be inserted here -->
+        <!-- </tbody>
+    </table>
+    <button onclick="saveEditedAnswers()" class="mt-4 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition">Save Changes</button>
+</div>
+</div> -->
+
+
+                <button id="submit-btn" onclick="submitTest()"
+                    class="bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition">Submit</button>
+            </div>
+        </header>
+
+        <div class="audio-player mb-8">
+            <audio id="exam-audio" controls class="w-full">
+                <source src="F:\Tailwind\media\Practice Test 1.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+
+        <div id="exam-content">
+            <!-- Part 1: Fill-in-the-blank and Dropdown -->
+
+            <div id="part1" class="space-y-8">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-6">Part 1</h2>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">1.</span> The building
+                        was constructed in
+                        <input type="text" id="q1" name="q1" maxlength="30"
+                            class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">2.</span> The architect's
+                        name was
+                        <select id="q2" name="q2" class="w-full p-2 border border-gray-300 rounded-md">
+                            <option value="">Select an option</option>
+                            <option value="John Smith">John Smith</option>
+                            <option value="Emma Johnson">Emma Johnson</option>
+                            <option value="Michael Brown">Michael Brown</option>
+                        </select>
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">3.</span> The building
+                        height was
+                        <input type="text" id="q3" name="q3" class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">4.</span> The
+                        construction year was
+                        <input type="text" id="q4" name="q4" class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">5.</span> The building
+                        cost was
+                        <input type="text" id="q5" name="q5" class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">6.</span> The architect's
+                        birth year was
+                        <input type="text" id="q6" name="q6" class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">7.</span> The material
+                        used in construction was
+                        <input type="text" id="q7" name="q7" class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">8.</span> The building's
+                        style was
+                        <input type="text" id="q8" name="q8" class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">9.</span> The building's
+                        location is
+                        <input type="text" id="q9" name="q9" class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">10.</span> The year the
+                        architect received the award was
+                        <input type="text" id="q10" name="q10" class="w-full p-2 border border-gray-300 rounded-md">
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Part 2: Multiple-choice (Radio) -->
+            <div id="part2" class="hidden space-y-8">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-6">Part 2</h2>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">11.</span> The main
+                        material used in construction was:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q11" value="Wood"
+                                class="form-radio text-blue-600"><span>Wood</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q11" value="Steel"
+                                class="form-radio text-blue-600"><span>Steel</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q11" value="Concrete"
+                                class="form-radio text-blue-600"><span>Concrete</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">12.</span> The building's
+                        style is classified as:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q12" value="Modern"
+                                class="form-radio text-blue-600"><span>Modern</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q12" value="Classical"
+                                class="form-radio text-blue-600"><span>Classical</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q12" value="Gothic"
+                                class="form-radio text-blue-600"><span>Gothic</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">13.</span> The architect
+                        worked on the project for:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q13" value="5 years"
+                                class="form-radio text-blue-600"><span>5 years</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q13" value="10 years"
+                                class="form-radio text-blue-600"><span>10 years</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q13" value="15 years"
+                                class="form-radio text-blue-600"><span>15 years</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">14.</span> The building
+                        has a total of:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q14" value="50 floors"
+                                class="form-radio text-blue-600"><span>50 floors</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q14" value="75 floors"
+                                class="form-radio text-blue-600"><span>75 floors</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q14" value="100 floors"
+                                class="form-radio text-blue-600"><span>100 floors</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">15.</span> The project
+                        was delayed due to:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q15" value="Weather"
+                                class="form-radio text-blue-600"><span>Weather</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q15" value="Lack of funds"
+                                class="form-radio text-blue-600"><span>Lack of funds</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q15" value="Labor strikes"
+                                class="form-radio text-blue-600"><span>Labor strikes</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">16.</span> How many
+                        people worked on the project?</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q16" value="200"
+                                class="form-radio text-blue-600"><span>200</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q16" value="500"
+                                class="form-radio text-blue-600"><span>500</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q16" value="1000"
+                                class="form-radio text-blue-600"><span>1000</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">17.</span> The
+                        construction started in:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q17" value="1990"
+                                class="form-radio text-blue-600"><span>1990</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q17" value="2000"
+                                class="form-radio text-blue-600"><span>2000</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q17" value="2010"
+                                class="form-radio text-blue-600"><span>2010</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">18.</span> The
+                        architect's nationality was:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q18" value="American"
+                                class="form-radio text-blue-600"><span>American</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q18" value="British"
+                                class="form-radio text-blue-600"><span>British</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q18" value="Canadian"
+                                class="form-radio text-blue-600"><span>Canadian</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">19.</span> The building's
+                        primary purpose is:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q19" value="Residential"
+                                class="form-radio text-blue-600"><span>Residential</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q19" value="Commercial"
+                                class="form-radio text-blue-600"><span>Commercial</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q19" value="Mixed-use"
+                                class="form-radio text-blue-600"><span>Mixed-use</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">20.</span> The final cost
+                        of the project was:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="radio" name="q20" value="$500 million"
+                                class="form-radio text-blue-600"><span>$500 million</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q20" value="$1 billion"
+                                class="form-radio text-blue-600"><span>$1 billion</span></label>
+                        <label class="flex items-center space-x-2"><input type="radio" name="q20" value="$2 billion"
+                                class="form-radio text-blue-600"><span>$2 billion</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part 3: Checkboxes (Multiple Answer) -->
+            <div id="part3" class="hidden space-y-8">
+                <h2 class="text-2xl font-semibold text-blue-600 mb-6">Part 3</h2>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">21.</span> Select all the
+                        features of the building:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q21"
+                                value="Solar panels" class="form-checkbox text-blue-600"><span>Solar
+                                panels</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q21"
+                                value="Rooftop garden" class="form-checkbox text-blue-600"><span>Rooftop
+                                garden</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q21"
+                                value="Wind turbines" class="form-checkbox text-blue-600"><span>Wind
+                                turbines</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">22.</span> The building's
+                        interior includes:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q22"
+                                value="Luxury apartments" class="form-checkbox text-blue-600"><span>Luxury
+                                apartments</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q22"
+                                value="Shopping mall" class="form-checkbox text-blue-600"><span>Shopping
+                                mall</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q22" value="Art gallery"
+                                class="form-checkbox text-blue-600"><span>Art gallery</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">23.</span> Select the
+                        materials used in construction:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q23" value="Concrete"
+                                class="form-checkbox text-blue-600"><span>Concrete</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q23" value="Glass"
+                                class="form-checkbox text-blue-600"><span>Glass</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q23" value="Steel"
+                                class="form-checkbox text-blue-600"><span>Steel</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">24.</span> The following
+                        renewable energy sources are used:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q24"
+                                value="Solar energy" class="form-checkbox text-blue-600"><span>Solar
+                                energy</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q24" value="Wind energy"
+                                class="form-checkbox text-blue-600"><span>Wind energy</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q24"
+                                value="Geothermal energy" class="form-checkbox text-blue-600"><span>Geothermal
+                                energy</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">25.</span> What are the
+                        main features of the building's sustainability plan?</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q25"
+                                value="Recycling facilities" class="form-checkbox text-blue-600"><span>Recycling
+                                facilities</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q25"
+                                value="Energy-efficient lighting"
+                                class="form-checkbox text-blue-600"><span>Energy-efficient lighting</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q25"
+                                value="Water conservation systems" class="form-checkbox text-blue-600"><span>Water
+                                conservation systems</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">26.</span> Select all the
+                        awards the building received:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q26"
+                                value="Best Architecture" class="form-checkbox text-blue-600"><span>Best
+                                Architecture</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q26"
+                                value="Green Building Award" class="form-checkbox text-blue-600"><span>Green Building
+                                Award</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q26"
+                                value="Innovation in Design" class="form-checkbox text-blue-600"><span>Innovation in
+                                Design</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">27.</span> The building
+                        features:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q27"
+                                value="Smart elevators" class="form-checkbox text-blue-600"><span>Smart
+                                elevators</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q27"
+                                value="Rooftop swimming pool" class="form-checkbox text-blue-600"><span>Rooftop swimming
+                                pool</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q27"
+                                value="Advanced security systems" class="form-checkbox text-blue-600"><span>Advanced
+                                security systems</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">28.</span> Select all
+                        nearby facilities:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q28"
+                                value="Shopping center" class="form-checkbox text-blue-600"><span>Shopping
+                                center</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q28"
+                                value="Public transportation hub" class="form-checkbox text-blue-600"><span>Public
+                                transportation hub</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q28" value="Park"
+                                class="form-checkbox text-blue-600"><span>Park</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">29.</span> The building's
+                        exterior design includes:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q29"
+                                value="LED lighting" class="form-checkbox text-blue-600"><span>LED
+                                lighting</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q29"
+                                value="Glass facade" class="form-checkbox text-blue-600"><span>Glass
+                                facade</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q29"
+                                value="Interactive art installations"
+                                class="form-checkbox text-blue-600"><span>Interactive art installations</span></label>
+                    </div>
+                </div>
+                <div class="bg-white p-5 rounded-lg shadow-md">
+                    <p class="font-medium text-gray-800"><span class="font-bold text-blue-600">30.</span> The
+                        surrounding area includes:</p>
+                    <div class="space-y-2 mt-4">
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q30" value="Restaurants"
+                                class="form-checkbox text-blue-600"><span>Restaurants</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q30"
+                                value="Fitness centers" class="form-checkbox text-blue-600"><span>Fitness
+                                centers</span></label>
+                        <label class="flex items-center space-x-2"><input type="checkbox" name="q30"
+                                value="Co-working spaces" class="form-checkbox text-blue-600"><span>Co-working
+                                spaces</span></label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Part 4: Drag and Drop (Fill-in-the-Blank) -->
+<div id="part4" class="hidden">
+    <h2 class="text-2xl font-semibold text-blue-600 mb-6">Part 4</h2>
+    <div class="space-y-8">
+        <!-- Question 31 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">31.</span> The tallest building in the world is
+                <div id="drop-area-31" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="Burj Khalifa">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div>
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Burj Khalifa">Burj Khalifa</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Empire State">Empire State</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Eiffel Tower">Eiffel Tower</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 32 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">32.</span> The building with the most floors is
+                <div id="drop-area-32" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="Burj Khalifa">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div>
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Burj Khalifa">Burj Khalifa</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Shanghai Tower">Shanghai Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Taipei 101">Taipei 101</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 33 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">33.</span> The Empire State Building is located in
+                <div id="drop-area-33" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="New York">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div>
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="New York">New York</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Chicago">Chicago</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Los Angeles">Los Angeles</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 34 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">34.</span>
+                <div id="drop-area-34" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="The Shard">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div> is known for its distinctive triangular design.
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="The Shard">The Shard</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Petronas Towers">Petronas Towers</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Willis Tower">Willis Tower</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 35 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">35.</span> The CN Tower is located in
+                <div id="drop-area-35" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="Toronto">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div>
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Toronto">Toronto</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Vancouver">Vancouver</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Montreal">Montreal</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 36 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">36.</span>
+                <div id="drop-area-36" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="Eiffel Tower">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div> is a famous building in Paris, France.
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Eiffel Tower">Eiffel Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Louvre Museum">Louvre Museum</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Arc de Triomphe">Arc de Triomphe</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 37 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">37.</span> The tallest building in the United States is
+                <div id="drop-area-37" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="One World Trade Center">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div>
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="One World Trade Center">One World Trade Center</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Willis Tower">Willis Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Empire State Building">Empire State Building</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 38 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">38.</span> The tallest building in China is
+                <div id="drop-area-38" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="Shanghai Tower">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div>
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Shanghai Tower">Shanghai Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Canton Tower">Canton Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Ping An Finance Centre">Ping An Finance Centre</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 39 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">39.</span> The tallest building in South Korea is
+                <div id="drop-area-39" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="Lotte World Tower">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div>
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Lotte World Tower">Lotte World Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Namsan Seoul Tower">Namsan Seoul Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="63 Building">63 Building</span>
+                </div>
+            </div>
+        </div>
+        <!-- Question 40 -->
+        <div class="bg-white p-5 rounded-lg shadow-md">
+            <p class="font-medium text-gray-800">
+                <span class="font-bold text-blue-600">40.</span> The tallest building in Australia is
+                <div id="drop-area-40" class="border border-gray-300 rounded-md px-2 py-1 w-full h-10 flex items-center justify-center bg-gray-100" data-answer="Q1 Tower">
+                    <span class="text-gray-500">Drag answer here</span>
+                </div>
+            </p>
+            <div class="drag-drop flex items-center space-x-4 mt-4">
+                <div class="draggable-options flex space-x-2">
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Q1 Tower">Q1 Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Sydney Tower">Sydney Tower</span>
+                    <span class="draggable px-3 py-1 border border-gray-300 rounded cursor-pointer bg-gray-100" draggable="true" data-value="Eureka Tower">Eureka Tower</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Tailwind CSS Scripts -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const draggables = document.querySelectorAll('.draggable');
+        const dropAreas = document.querySelectorAll('[id^="drop-area-"]');
+        
+        draggables.forEach(draggable => {
+            draggable.addEventListener('dragstart', () => {
+                draggable.classList.add('dragging');
+            });
+            
+            draggable.addEventListener('dragend', () => {
+                draggable.classList.remove('dragging');
+            });
+        });
+        
+        dropAreas.forEach(dropArea => {
+            dropArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropArea.classList.add('bg-gray-200');
+            });
+            
+            dropArea.addEventListener('dragleave', () => {
+                dropArea.classList.remove('bg-gray-200');
+            });
+            
+            dropArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                const draggedElement = document.querySelector('.dragging');
+                dropArea.textContent = draggedElement.textContent;
+                dropArea.classList.remove('bg-gray-200');
+                draggedElement.classList.remove('dragging');
+                // Set the data-answer attribute to the dropped value
+                dropArea.setAttribute('data-value', draggedElement.getAttribute('data-value'));
+            });
+        });
+    });
+</script>
+            <!-- Message Modal -->
+            <!-- <div id="message-modal"
+                class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div class="relative bg-white p-8 rounded-lg shadow-lg w-11/12 max-w-lg"> -->
+                    <!-- Close Button -->
+                    <!-- <button
+                        class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl font-bold focus:outline-none"
+                        onclick="closeMessageModal()">&times;</button> -->
+
+                    <!-- Modal Title -->
+                    <!-- <h2 class="text-xl text-blue-600 font-bold mb-4">Message</h2> -->
+
+                    <!-- Modal Content -->
+                    <!-- <p>Your message here...</p>
+                </div>
+            </div> -->
+
+        </div>
+
+        <div class="fixed inset-x-0 bottom-8 flex justify-between px-4">
+            <button id="prevButton" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-md transition-transform transform hover:scale-105"
+                onclick="prevPart()">Previous</button>
+            <button id="nextButton" class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md shadow-md transition-transform transform hover:scale-105"
+                onclick="nextPart()">Next</button>
+        </div>
+        
+
+        <!-- Notepad Section -->
+         <!-- Notepad Section -->
+<div id="notepad" class="fixed bottom-4 right-4 p-4 bg-gray-100 border border-gray-300 rounded-lg shadow-md hidden z-50">
+    <button onclick="toggleNotepad()" class="absolute top-2 right-2 text-gray-500 hover:text-gray-700 text-2xl font-bold focus:outline-none">&times;</button>
+    <h3 class="text-lg font-semibold mb-2">Notepad</h3>
+    <textarea id="notes" placeholder="Write your notes here..." class="w-full h-40 p-2 border border-gray-300 rounded-md"></textarea>
+</div>
+
+<!-- <div id="notepad" class="p-4 bg-gray-100 border border-gray-300 rounded-lg shadow-md">
+    <h3 class="text-lg font-semibold mb-2">Notepad</h3>
+    <textarea id="notes" placeholder="Write your notes here..." class="w-full h-40 p-2 border border-gray-300 rounded-md"></textarea>
+</div> -->
+
+<!-- Review Sheet Section -->
+<!-- <div id="review-sheet" class="hidden p-4 bg-gray-100 border border-gray-300 rounded-lg shadow-md">
+    <h3 class="text-lg font-semibold mb-2">Review Answers</h3>
+    <table class="w-full border-collapse">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border px-4 py-2 text-left">Question</th>
+                <th class="border px-4 py-2 text-left">Your Answer</th>
+            </tr>
+        </thead>
+        <tbody id="review-list-body"> -->
+            <!-- Rows will be inserted here dynamically -->
+        <!-- </tbody>
+    </table>
+</div> -->
+
+<!-- Message Modal -->
+<div id="message-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg w-1/3">
+        <span class="absolute top-2 right-2 text-gray-500 cursor-pointer text-xl" onclick="closeModal()">&times;</span>
+        <h2 class="text-2xl font-semibold mb-4">Exam Submitted Successfully!</h2>
+        <p>Thank you for completing the test. Your responses have been recorded.</p>
+    </div>
+</div>
+
+
+
+        <script src="../javascript/listening_exam.js">
+            // Your JavaScript code for handling interactions will go here
+
+        </script>
+</body>
+
+</html>
